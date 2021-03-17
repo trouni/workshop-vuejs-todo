@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+
+body, button, input, textarea {
+  font-family: Poppins, Helvetica, Arial, sans-serif;
+}
+
+h3, p, input, textarea {
+  margin: 0;
+}
+
+input, textarea {
+  border: none;
+  background: none;
+  &:focus {
+    outline: none;
+    background-color: rgba(#41B883, 0.1);
+  }
+}
+
+.btn {
+  margin: 2rem auto;
+  border-radius: 7px;
+  display: block;
+  font-weight: 300;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  background: linear-gradient(0deg, #35495E, #41B883);
+  color: white;
+  border: none;
+  height: 2.8em;
+  min-width: 12em;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 3px rgba(white, 0.5);
+  border-radius: 1.4em;
+  cursor: pointer;
+  padding: 0 2rem;
+  &:focus {
+    outline: none;
+  }
+}
