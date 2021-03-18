@@ -34,6 +34,9 @@ export default {
   min-height: 6rem;
   border-bottom: solid 1px rgba(#35495e, 0.1);
   border-left: solid 5px #41b883;
+  p {
+    font-size: 0.9rem;
+  }
   &:hover {
     background-color: white;
     transform: scale(1.02);
@@ -53,6 +56,7 @@ export default {
 
   &.done {
     border-left: solid 5px rgba(#35495e, 0.3);
+    background-color: rgba(#35495e, 0.08);
     h3,
     p {
       text-decoration: line-through;

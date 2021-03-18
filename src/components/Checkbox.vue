@@ -21,9 +21,8 @@ $checked-color: #41b883;
   height: 2rem;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.2s;
   &:hover {
-    background-color: rgba($checked-color, 0.1);
+    background-color: rgba($checked-color, 0.2);
     transform: scale(1.1);
   }
 }

@@ -1,24 +1,23 @@
 <template>
   <div>
-    <button class="btn" @click="formHidden = !formHidden">
-      {{ formHidden ? "Add Task" : "Cancel" }}
+    <button class="btn" @click="toggleForm()">
+      {{ formVisible ? "Cancel" : "Add Task" }}
     </button>
-    <div
-      v-show="!formHidden"
-      class="task-card new-task"
-      @keyup.enter="createTask(title, description)"
-    >
+
+    <div v-if="formVisible" class="task-card new-task">
       <div>
         <input
+          @keypress.enter="$nextTick(() => $refs.descriptionInput.focus())"
           type="text"
           placeholder="What is your task?"
           v-model="title"
           ref="titleInput"
         />
         <textarea
-          rows="1"
+          @keypress.enter="createTask(title, description)"
           v-model="description"
           placeholder="Add some details about your task..."
+          ref="descriptionInput"
         ></textarea>
       </div>
     </div>
@@ -31,14 +30,22 @@ export default {
     return {
       title: "",
       description: "",
-      formHidden: true,
+      formVisible: false,
     };
   },
 
   methods: {
+    toggleForm() {
+      this.formVisible = !this.formVisible;
+      if (this.formVisible) this.$nextTick(() => this.$refs.titleInput.focus());
+      this.resetForm();
+    },
     createTask(title, description) {
       this.$emit("create-task", title, description);
-      this.formHidden = true;
+      this.formVisible = false;
+      this.resetForm();
+    },
+    resetForm() {
       this.title = "";
       this.description = "";
     },
@@ -47,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss">
-@keyframes new-task-form {
+@keyframes expand-vertical {
   from {
     min-height: 0;
     height: 0;
@@ -58,16 +65,14 @@ export default {
 }
 
 .new-task {
-  animation: "new-task-form" 0.2s forwards;
+  animation: "expand-vertical" 0.2s;
   overflow: hidden;
   background-color: white;
   transform: scale(1.02);
-  box-shadow: 2px 3px 8px rgba(black, 0.08);
-  border: solid 1px #35495e;
   border-left: solid 5px #35495e;
-  z-index: 1000;
+  &,
   &:hover {
-    box-shadow: 2px 3px 8px rgba(black, 0.08);
+    box-shadow: 2px 3px 10px rgba(black, 0.2);
   }
   input {
     font-size: 1.17rem;

@@ -1,6 +1,7 @@
 <template>
   <div>
     <NewTask @create-task="createTask" />
+
     <div v-if="tasks.length" class="tasks-list">
       <TaskCard
         v-for="(task, index) in tasks"
@@ -11,7 +12,9 @@
         :task-index="index"
         @toggle-task="toggleTask"
       />
+      <a href="#" @click="resetTasks()" class="reset-link">Reset tasks</a>
     </div>
+
     <p v-else>You don't have any tasks yet...</p>
   </div>
 </template>
@@ -29,9 +32,7 @@ export default {
 
   data() {
     return {
-      tasks: (JSON.parse(localStorage.getItem("tasks")) || []).sort((task) =>
-        task.done ? 1 : -1
-      ),
+      tasks: JSON.parse(localStorage.getItem("tasks")) || [],
     };
   },
 
@@ -49,6 +50,10 @@ export default {
       const taskToUpdate = this.tasks[taskIndex];
       taskToUpdate.done = !taskToUpdate.done;
       this.$set(this.tasks, taskIndex, taskToUpdate);
+    },
+    resetTasks() {
+      localStorage.setItem("tasks", null);
+      this.tasks = [];
     },
   },
 };
