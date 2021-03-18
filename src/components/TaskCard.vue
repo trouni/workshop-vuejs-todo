@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div :class="['task-card', { done: done }]">
     <div>
       <h3>{{ title }}</h3>
