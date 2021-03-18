@@ -76,7 +76,7 @@
 
 
 
-```html
+```vue
 <!-- TaskCard.vue -->
 <template>
   <div :class="['task-card', { done: done }]">
@@ -111,7 +111,7 @@ export default {
 ```
 
 
-```html
+```vue
 <!-- TaskCard.vue -->
 <style lang="scss">
 .task-card {
@@ -148,7 +148,7 @@ export default {
 
 
 
-```html
+```vue
 // Checkbox.vue
 <style lang="scss">
 $check-color: #41b883;
