@@ -11,25 +11,25 @@ export default {
 </script>
 
 <style lang="scss">
-$checked-color: #41b883;
+$check-color: #41b883;
 
 .checkbox {
   display: flex;
   align-self: center;
-  border: solid 2px $checked-color;
+  border: solid 2px $check-color;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
+  margin: 0 1rem;
   cursor: pointer;
   &:hover {
-    background-color: rgba($checked-color, 0.2);
+    background-color: rgba($check-color, 0.2);
     transform: scale(1.1);
   }
-}
-
-.checkbox.checked {
-  background-color: $checked-color;
-  &:after {
+  &.checked {
+    background-color: $check-color;
+  }
+  &.checked:after {
     content: "";
     display: inline-block;
     transform: rotate(45deg) translate(-35%, 40%);

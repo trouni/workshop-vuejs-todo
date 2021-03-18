@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <div class="task-card new-task">
-      <div>
-        <input
-          @keypress.enter="$nextTick(() => $refs.descriptionInput.focus())"
-          type="text"
-          placeholder="What is your task?"
-          v-model="title"
-          ref="titleInput"
-        />
-        <textarea
-          @keypress.enter="createTask(title, description)"
-          v-model="description"
-          placeholder="Add some details about your task..."
-          ref="descriptionInput"
-        ></textarea>
-      </div>
+  <div class="task-card new-task">
+    <div>
+      <input
+        v-model="title"
+        @keypress.enter="$nextTick(() => $refs.descriptionInput.focus())"
+        type="text"
+        placeholder="What is your task?"
+        ref="titleInput"
+      />
+      <textarea
+        v-model="description"
+        @keypress.enter="createTask(title, description)"
+        placeholder="Add some details about your task..."
+        ref="descriptionInput"
+      ></textarea>
     </div>
   </div>
 </template>
@@ -53,14 +51,17 @@ export default {
 }
 
 .new-task {
-  animation: "expand-vertical" 0.2s;
+  animation: expand-vertical 0.2s;
   overflow: hidden;
   background-color: white;
-  transform: scale(1.02);
   border-left: solid 5px #35495e;
   &,
   &:hover {
+    transform: scale(1.1);
     box-shadow: 2px 3px 10px rgba(black, 0.2);
+  }
+  & + .tasks-list {
+    pointer-events: none;
   }
   input {
     font-size: 1.17rem;

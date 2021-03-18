@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
 
+html {
+  background: rgba(#35495e,0.03);
+}
+
 #app {
   font-family: Poppins, Helvetica, Arial, sans-serif;
   font-weight: 100;
@@ -45,6 +49,12 @@ input, textarea {
   border-radius: 1.4em;
   cursor: pointer;
   padding: 0 2rem;
+  &:hover {
+    transform: scale(1.06);
+  }
+  &:active {
+    transform: scale(1.03);
+  }
   &:focus {
     outline: none;
   }
