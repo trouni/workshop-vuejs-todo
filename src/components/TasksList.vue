@@ -1,6 +1,10 @@
 <template>
   <div>
-    <NewTask @create-task="createTask" />
+    <button class="btn" @click="showingNewTaskForm = !showingNewTaskForm">
+      {{ showingNewTaskForm ? "Cancel" : "Add Task" }}
+    </button>
+
+    <NewTask v-if="showingNewTaskForm" @create-task="createTask" />
 
     <div v-if="tasks.length" class="tasks-list">
       <TaskCard
@@ -15,7 +19,7 @@
       <a href="#" @click="resetTasks()" class="reset-link">Reset tasks</a>
     </div>
 
-    <p v-else>You don't have any tasks yet...</p>
+    <p v-else-if="!showingNewTaskForm">You don't have any tasks yet...</p>
   </div>
 </template>
 
@@ -33,6 +37,7 @@ export default {
   data() {
     return {
       tasks: JSON.parse(localStorage.getItem("tasks")) || [],
+      showingNewTaskForm: false,
     };
   },
 
@@ -45,6 +50,7 @@ export default {
   methods: {
     createTask(title, description, done = false) {
       this.tasks.unshift({ title, description, done });
+      this.showingNewTaskForm = false;
     },
     toggleTask(taskIndex) {
       const taskToUpdate = this.tasks[taskIndex];

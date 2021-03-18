@@ -1,10 +1,6 @@
 <template>
   <div>
-    <button class="btn" @click="toggleForm()">
-      {{ formVisible ? "Cancel" : "Add Task" }}
-    </button>
-
-    <div v-if="formVisible" class="task-card new-task">
+    <div class="task-card new-task">
       <div>
         <input
           @keypress.enter="$nextTick(() => $refs.descriptionInput.focus())"
@@ -30,24 +26,16 @@ export default {
     return {
       title: "",
       description: "",
-      formVisible: false,
     };
   },
 
+  mounted() {
+    this.$refs.titleInput.focus();
+  },
+
   methods: {
-    toggleForm() {
-      this.formVisible = !this.formVisible;
-      if (this.formVisible) this.$nextTick(() => this.$refs.titleInput.focus());
-      this.resetForm();
-    },
     createTask(title, description) {
       this.$emit("create-task", title, description);
-      this.formVisible = false;
-      this.resetForm();
-    },
-    resetForm() {
-      this.title = "";
-      this.description = "";
     },
   },
 };
