@@ -1,7 +1,10 @@
 <template>
   <div>
-    <button class="btn" @click="showingNewTaskForm = !showingNewTaskForm">
-      {{ showingNewTaskForm ? "Cancel" : "Add Task" }}
+    <button
+      class="btn round-icon"
+      @click="showingNewTaskForm = !showingNewTaskForm"
+    >
+      {{ showingNewTaskForm ? "✕" : "＋" }}
     </button>
 
     <NewTask v-if="showingNewTaskForm" @create-task="createTask" />

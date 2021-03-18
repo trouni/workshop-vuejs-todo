@@ -31,7 +31,6 @@ input, textarea {
 
 .btn {
   margin: 2rem auto;
-  border-radius: 7px;
   display: block;
   font-weight: 300;
   font-size: 0.9rem;
@@ -48,6 +47,13 @@ input, textarea {
   padding: 0 2rem;
   &:focus {
     outline: none;
+  }
+  &.round-icon {
+    letter-spacing: unset;
+    font-size: 1.5rem;
+    height: 2em;
+    min-width: 2em;
+    padding: 0;
   }
 }
 
