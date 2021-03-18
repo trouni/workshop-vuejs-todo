@@ -47,7 +47,7 @@
 </style>
 ```
 
-:warning: The `<template>` should only have a **single** root element.
+⚠️ The `<template>` should only have a **single** root element.
 
 
 ### Creating your first components
@@ -353,7 +353,7 @@ Let's add a button to test that our method works and make it listen to `click` e
 
 <button
   class="btn round-icon"
-  @click="addTask('My new task', 'My new description')"
+  v-on:click="addTask('My new task', 'My new description')"
 >＋</button>
 ```
 
