@@ -11,7 +11,7 @@
 
 This workshop will teach you how to build <a href="https://trouni-vue-task-manager.netlify.app/" target="_blank">this simple Todo app</a>.
 
-Note: the slide version of this workshop is available <a href="https://slides.trouni.com/?src=trouni/workshop-vuejs-todo" target="_blank">here</a>
+Note: the slide version of this workshop is available [here](https://slides.trouni.com/?src=trouni/workshop-vuejs-todo).
 
 ---
 
@@ -21,8 +21,8 @@ Note: the slide version of this workshop is available <a href="https://slides.tr
 
 Clone the git repository for this workshop
 
-```zsh
-git clone https://github.com/trouni/workshop-vuejs-todo.git
+```
+git clone https://github.com/trouni/workshop-vuejs-todo.git && cd workshop-vuejs-todo
 ```
 
 **OR** [download the ZIP file](https://github.com/trouni/workshop-vuejs-todo/archive/refs/heads/main.zip) and unzip the archive to your projects folder or desktop.
@@ -39,6 +39,13 @@ yarn serve # Compiles and hot-reloads for development
 ```
 
 You should now be able to view your app on http://localhost:8080.
+
+
+### Optional Setup
+
+Not required, but you can also install these useful tools:
+- [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) for syntax highlighting, snippets, _etc._ in VS Code, or [this package](https://medium.com/@kentaguilar/install-vue-syntax-highlighting-via-package-control-on-sublime-text-2-bfb977f444e7) for Sublime Text.
+- [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd), a Chrome extension to debug your Vue app from the browser.
 
 ---
 
@@ -60,7 +67,7 @@ You should now be able to view your app on http://localhost:8080.
 // Data & logic
 </script>
 
-<style lang="scss">
+<style>
 /* Styling */
 </style>
 ```
@@ -130,11 +137,7 @@ Let's replace the text with a static card:
 You can add styling rules for each component in the `<style>` section. Try it out!
 
 
-
-## Making dynamic components
-
-
-First of all, we should move the task card into its own component. Move the previous code into a `TaskCard.vue` and add this styling:
+You can use this styling I prepared for the card, but we should first move the task card into its own component. Move the previous code into a `TaskCard.vue` and add this styling:
 
 ```vue
 <!-- TaskCard.vue -->
@@ -162,7 +165,7 @@ First of all, we should move the task card into its own component. Move the prev
     flex-direction: column;
     justify-content: center;
   }
-  &.done {
+  &.completed {
     border-left: solid 8px rgba(#35495e, 0.3);
     background-color: rgba(#35495e, 0.08);
     h3, p { text-decoration: line-through; opacity: 0.3; }
@@ -173,11 +176,15 @@ First of all, we should move the task card into its own component. Move the prev
 ```
 
 
+
+## Making dynamic components
+
+
 ### Defining the State of a Component with `data`
 
 Let's define some `data` and use the mustaches `{{ }}` to interpolate the values in our HTML template.
 
-**💡Tip**: Install the awesome [Vue.js Chrome DevTools extension](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) to inspect data (and more) in your Vue app.
+**💡Tip**: Install the awesome [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd), a Chrome extension to inspect data (and more) in your Vue app.
 
 ```vue
 <!-- TaskCard.vue -->
@@ -310,7 +317,7 @@ We can bind the class attribute to add a `done` class to the card when the task 
 <!-- TaskCard.vue -->
 
 <template>
-  <div :class="['task-card', { done: done }]">
+  <div :class="['task-card', { completed: done }]">
   <!-- ... -->
 </template>
 ```
@@ -466,7 +473,7 @@ export default {
   <!-- ... -->
     <button
       class="btn round-icon"
-      v-on:click="addTask(newTitle, newDescription), resetForm()"
+      @click="addTask(newTitle, newDescription), resetForm()"
     >＋</button>
   <!-- ... -->
 </template>
@@ -626,7 +633,7 @@ Modify your `TaskCard` component to use the `Checkbox` and emit a custom event o
 <!-- TaskCard.vue -->
 
 <template>
-  <div :class="['task-card', { done: done }]">
+  <div :class="['task-card', { completed: done }]">
     <div>
       <h3>{{ title }}</h3>
       <p>{{ description }}</p>
