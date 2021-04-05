@@ -1,9 +1,14 @@
 ### JavaScript Workshop
 # Introduction to Vue.js
 
-SETUP: https://info.lewagon.com/tokyo-chrome-ext
+**REGISTER:**
 
-*By [Trouni Tiet](https://linkedin.com/in/trouni) with [Le Wagon Tokyo](https://www.lewagon.com/tokyo)*
+https://info.lewagon.com/tokyo-vuejs
+
+
+> *By [Trouni Tiet](https://linkedin.com/in/trouni) with [Le Wagon Tokyo](https://www.lewagon.com/tokyo)*
+
+Note: [View the slides for this workshop](https://slides.trouni.com/?src=trouni/workshop-vuejs-todo/solution)
 
 ---
 
