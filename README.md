@@ -6,7 +6,7 @@
 </p>
 
 - View a demo of this app <a href="https://trouni-vue-task-manager.netlify.app/" target="_blank">here</a>.
-- View the detailed instructions for this workshop [here](https://github.com/trouni/workshop-vuejs-todo)
+- View the detailed instructions for this workshop [here](https://github.com/trouni/workshop-vuejs-todo#setup)
 
 
 
@@ -14,28 +14,15 @@
 
 ## Setup
 
-**TODO:**
-
-Clone the git repository for this workshop
-
 ```zsh
-git clone https://github.com/trouni/workshop-vuejs-todo.git && cd workshop-vuejs-todo
+git clone https://github.com/trouni/workshop-vuejs-todo.git
+
+cd workshop-vuejs-todo
+
+yarn install
+
+yarn serve
 ```
-
-**OR** [download the ZIP file](https://github.com/trouni/workshop-vuejs-todo/archive/refs/heads/main.zip) and unzip the archive to your projects folder or desktop.
-
-
-**TODO:**
-
-Run `yarn install` to install the project's dependencies, then `yarn serve` to launch a local server.
-
-```sh    
-yarn install # Installs dependencies
-
-yarn serve # Compiles and hot-reloads for development
-```
-
-You should now be able to view your app on http://localhost:8080.
 
 ---
 
