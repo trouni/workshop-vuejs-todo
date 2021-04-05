@@ -19,10 +19,12 @@ Note: the slide version of this workshop is available [here](https://slides.trou
 
 **TODO:**
 
-Clone the git repository for this workshop
+Clone the git repository for this workshop and get into the project folder.
 
-```
-git clone https://github.com/trouni/workshop-vuejs-todo.git && cd workshop-vuejs-todo
+```sh
+git clone https://github.com/trouni/workshop-vuejs-todo.git
+
+cd workshop-vuejs-todo
 ```
 
 **OR** [download the ZIP file](https://github.com/trouni/workshop-vuejs-todo/archive/refs/heads/main.zip) and unzip the archive to your projects folder or desktop.
