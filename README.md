@@ -9,9 +9,9 @@
 
 https://info.lewagon.com/tokyo-vuejs
 
-Note: [View the slides for this workshop](https://slides.trouni.com/?src=trouni/workshop-vuejs-todo/solution)
+Note: This workshop will teach you how to build <a href="https://trouni-vue-task-manager.netlify.app/" target="_blank">this simple Todo app</a>. Also, the slides for this workshop are available <a href="https://slides.trouni.com/?src=trouni/workshop-vuejs-todo/solution" target="_blank">here</a>
 
-This workshop will teach you how to build [this simple Todo app](https://trouni-vue-task-manager.netlify.app/).
+
 
 ---
 
