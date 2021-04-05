@@ -14,4 +14,16 @@ export default {
 
 <style lang="scss">
 // @import "./assets/style.scss";
+
+#app {
+  font-family: Poppins, Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: auto;
+  margin-top: 60px;
+  max-width: 600px;
+}
 </style>
