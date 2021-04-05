@@ -1,11 +1,13 @@
 ### JavaScript Workshop
-# Introduction to <img src="src/assets/logo.png" alt="Vue.js Logo" width="30px"> Vue.js
+# Introduction to Vue.js
 
+<p align="center" width="100%">
+  <img src="src/assets/logo.png" alt="Vue.js Logo" height="100px" style="margin: auto;">
+</p>
 
 **REGISTER:**
 
 https://info.lewagon.com/tokyo-vuejs
-
 
 > *By [Trouni Tiet](https://linkedin.com/in/trouni) with [Le Wagon Tokyo](https://www.lewagon.com/tokyo)*
 
