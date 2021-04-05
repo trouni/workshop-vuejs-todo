@@ -5,7 +5,7 @@ SETUP: https://info.lewagon.com/tokyo-chrome-ext
 
 *By [Trouni Tiet](https://linkedin.com/in/trouni) with [Le Wagon Tokyo](https://www.lewagon.com/tokyo)*
 
-
+---
 
 ## Setup
 
@@ -30,7 +30,7 @@ yarn install # Installs dependencies
 yarn serve # Compiles and hot-reloads for development
 ```
 
-
+---
 
 ## Introducing Vue Components
 
@@ -608,8 +608,14 @@ export default {
 
 
 
-What's next?
-- Computed Properties
-- Vue Lifecycle
-- Slots
-- Vue Router
+## What to look at next?
+
+- [Computed Properties](https://v3.vuejs.org/api/options-data.html#computed)
+- [Vue Lifecycle Hooks](https://v3.vuejs.org/api/options-lifecycle-hooks.html)
+- [Component Slots](https://v3.vuejs.org/api/options-data.html#computed)
+- [Vue Router](https://router.vuejs.org/)
+
+---
+
+Workshop/tutorial by **Trouni Tiet**\
+[LinkedIn](https://linkedin.com/trouni) | [GitHub](https://github.com/trouni)
