@@ -2,15 +2,15 @@
   <div class="task-card new-task">
     <div>
       <input
-        v-model="title"
+        v-model="newTitle"
         @keypress.enter="$refs.descriptionInput.focus()"
         type="text"
         placeholder="What is your task?"
         ref="titleInput"
       />
       <textarea
-        v-model="description"
-        @keypress.enter="createTask(title, description)"
+        v-model="newDescription"
+        @keypress.enter="submitTask(newTitle, newDescription), resetForm()"
         placeholder="Add some details about your task..."
         ref="descriptionInput"
       ></textarea>
@@ -22,8 +22,8 @@
 export default {
   data() {
     return {
-      title: "",
-      description: "",
+      newTitle: "",
+      newDescription: "",
     };
   },
 
@@ -32,8 +32,12 @@ export default {
   },
 
   methods: {
-    createTask(title, description) {
-      this.$emit("create-task", title, description);
+    submitTask(title, description) {
+      this.$emit("add-task", title, description);
+    },
+    resetForm() {
+      this.newTitle = "";
+      this.newDescription = "";
     },
   },
 };
