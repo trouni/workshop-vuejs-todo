@@ -7,7 +7,7 @@
 
 **REGISTER:**
 
-<a href="https://info.lewagon.com/tokyo-vuejs" target="_blank">https://info.lewagon.com/tokyo-vuejs</a>
+> <a href="https://info.lewagon.com/tokyo-vuejs" target="_blank">https://info.lewagon.com/tokyo-vuejs</a>
 
 This workshop will teach you how to build <a href="https://trouni-vue-task-manager.netlify.app/" target="_blank">this simple Todo app</a>.
 
