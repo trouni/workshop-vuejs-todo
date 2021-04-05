@@ -1,5 +1,6 @@
 ### JavaScript Workshop
-# Introduction to Vue.js
+# Introduction to <img src="src/assets/logo.png" alt="Vue.js Logo" width="30px"> Vue.js
+
 
 **REGISTER:**
 
