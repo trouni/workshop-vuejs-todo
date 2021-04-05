@@ -1,30 +1,38 @@
-# Vue.js intro
+### JavaScript Workshop
+# Introduction to Vue.js
+
+SETUP: https://info.lewagon.com/tokyo-chrome-ext
+
+*By [Trouni Tiet](https://linkedin.com/in/trouni) with [Le Wagon Tokyo](https://www.lewagon.com/tokyo)*
 
 
 
 ## Setup
 
-    yarn install
+**TODO:**
+
+Clone the git repository for this workshop
+
+```zsh
+git clone https://github.com/trouni/workshop-vuejs-todo.git
+```
+
+**OR** [download the ZIP file](https://github.com/trouni/workshop-vuejs-todo/archive/refs/heads/main.zip) and unzip the archive to your projects folder or desktop.
 
 
-### Compiles and hot-reloads for development
+**TODO:**
 
-    yarn serve
+Run `yarn install` to install the project's dependencies, then `yarn serve` to launch a local server.
 
+```sh    
+yarn install # Installs dependencies
 
-### Compiles and minifies for production
-
-    yarn build
-
-
-### Lints and fixes files
-
-    yarn lint
+yarn serve # Compiles and hot-reloads for development
+```
 
 
 
 ## Introducing Vue Components
-
 
 
 ### Component File Structure
@@ -93,7 +101,7 @@ export default {
 
 Let's replace the text with a static card:
 
-```vue
+```html
 <template>
   <div>
     <div class="task-card">
@@ -291,6 +299,7 @@ We can bind the class attribute to add a `done` class to the card when the task 
   <!-- ... -->
 </template>
 ```
+
 
 ### Iterate with `v-for`
 
