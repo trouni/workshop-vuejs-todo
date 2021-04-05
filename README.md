@@ -756,6 +756,12 @@ The parent component `TasksList` listens for the custom `add-task` event, and ca
 
 
 
+### The Finished App
+
+You can view the finished code for the app [here](https://github.com/trouni/workshop-vuejs-todo/tree/solution).
+
+
+
 ## What to look at next?
 
 - [Computed Properties](https://v3.vuejs.org/api/options-data.html#computed)
@@ -764,6 +770,8 @@ The parent component `TasksList` listens for the custom `add-task` event, and ca
 - [Vue Router](https://router.vuejs.org/)
 
 ---
+
+## Happy coding!
 
 Workshop/tutorial by **Trouni Tiet**\
 [LinkedIn](https://linkedin.com/trouni) | [GitHub](https://github.com/trouni)
