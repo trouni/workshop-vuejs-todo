@@ -9,8 +9,6 @@
 
 https://info.lewagon.com/tokyo-vuejs
 
-> *By [Trouni Tiet](https://linkedin.com/in/trouni) with [Le Wagon Tokyo](https://www.lewagon.com/tokyo)*
-
 Note: [View the slides for this workshop](https://slides.trouni.com/?src=trouni/workshop-vuejs-todo/solution)
 
 ---
@@ -37,6 +35,8 @@ yarn install # Installs dependencies
 
 yarn serve # Compiles and hot-reloads for development
 ```
+
+You should now be able to view your app on http://localhost:8080.
 
 ---
 
