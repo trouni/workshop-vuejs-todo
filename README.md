@@ -5,11 +5,11 @@
   <img src="src/assets/logo.png" alt="Vue.js Logo" height="100px" style="margin: auto;">
 </p>
 
+Learn how to build <a href="https://trouni-vue-task-manager.netlify.app/" target="_blank">this simple Todo app</a>.
+
 **REGISTER:**
 
 > <a href="https://info.lewagon.com/tokyo-vuejs" target="_blank">https://info.lewagon.com/tokyo-vuejs</a>
-
-This workshop will teach you how to build <a href="https://trouni-vue-task-manager.netlify.app/" target="_blank">this simple Todo app</a>.
 
 Note: the slide version of this workshop is available [here](https://slides.trouni.com/?src=trouni/workshop-vuejs-todo).
 
