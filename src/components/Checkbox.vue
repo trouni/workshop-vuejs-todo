@@ -1,5 +1,5 @@
 <template>
-  <div :class="['checkbox', { checked: checked }]"></div>
+  <div :class="['checkbox', { checked }]"></div>
 </template>
 
 <script>
