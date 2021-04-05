@@ -1,30 +1,46 @@
-# Vue.js intro
+### JavaScript Workshop
+# Introduction to Vue.js
 
+<p align="center" width="100%">
+  <img src="src/assets/logo.png" alt="Vue.js Logo" height="100px" style="margin: auto;">
+</p>
 
+**REGISTER:**
+
+https://info.lewagon.com/tokyo-vuejs
+
+Note: [View the slides for this workshop](https://slides.trouni.com/?src=trouni/workshop-vuejs-todo/solution)
+
+---
 
 ## Setup
 
-    yarn install
+**TODO:**
+
+Clone the git repository for this workshop
+
+```zsh
+git clone https://github.com/trouni/workshop-vuejs-todo.git
+```
+
+**OR** [download the ZIP file](https://github.com/trouni/workshop-vuejs-todo/archive/refs/heads/main.zip) and unzip the archive to your projects folder or desktop.
 
 
-### Compiles and hot-reloads for development
+**TODO:**
 
-    yarn serve
+Run `yarn install` to install the project's dependencies, then `yarn serve` to launch a local server.
 
+```sh    
+yarn install # Installs dependencies
 
-### Compiles and minifies for production
+yarn serve # Compiles and hot-reloads for development
+```
 
-    yarn build
+You should now be able to view your app on http://localhost:8080.
 
-
-### Lints and fixes files
-
-    yarn lint
-
-
+---
 
 ## Introducing Vue Components
-
 
 
 ### Component File Structure
@@ -93,7 +109,7 @@ export default {
 
 Let's replace the text with a static card:
 
-```vue
+```html
 <template>
   <div>
     <div class="task-card">
@@ -291,6 +307,7 @@ We can bind the class attribute to add a `done` class to the card when the task 
   <!-- ... -->
 </template>
 ```
+
 
 ### Iterate with `v-for`
 
@@ -599,8 +616,14 @@ export default {
 
 
 
-What's next?
-- Computed Properties
-- Vue Lifecycle
-- Slots
-- Vue Router
+## What to look at next?
+
+- [Computed Properties](https://v3.vuejs.org/api/options-data.html#computed)
+- [Vue Lifecycle Hooks](https://v3.vuejs.org/api/options-lifecycle-hooks.html)
+- [Component Slots](https://v3.vuejs.org/api/options-data.html#computed)
+- [Vue Router](https://router.vuejs.org/)
+
+---
+
+Workshop/tutorial by **Trouni Tiet**\
+[LinkedIn](https://linkedin.com/trouni) | [GitHub](https://github.com/trouni)

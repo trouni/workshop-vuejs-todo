@@ -3,7 +3,7 @@
     <div>
       <input
         v-model="title"
-        @keypress.enter="$nextTick(() => $refs.descriptionInput.focus())"
+        @keypress.enter="$refs.descriptionInput.focus()"
         type="text"
         placeholder="What is your task?"
         ref="titleInput"
