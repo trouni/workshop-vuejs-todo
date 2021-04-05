@@ -165,7 +165,7 @@ You can use this styling I prepared for the card, but we should first move the t
     flex-direction: column;
     justify-content: center;
   }
-  &.completed {
+  &.done {
     border-left: solid 8px rgba(#35495e, 0.3);
     background-color: rgba(#35495e, 0.08);
     h3, p { text-decoration: line-through; opacity: 0.3; }
@@ -317,7 +317,7 @@ We can bind the class attribute to add a `done` class to the card when the task 
 <!-- TaskCard.vue -->
 
 <template>
-  <div :class="['task-card', { completed: done }]">
+  <div :class="['task-card', { done }]">
   <!-- ... -->
 </template>
 ```
@@ -588,7 +588,7 @@ Create this new UI component `Checkbox`:
 <!-- Checkbox.vue -->
 
 <template>
-  <div :class="['checkbox', { checked: checked }]"></div>
+  <div :class="['checkbox', { checked }]"></div>
 </template>
 
 <script>
@@ -633,7 +633,7 @@ Modify your `TaskCard` component to use the `Checkbox` and emit a custom event o
 <!-- TaskCard.vue -->
 
 <template>
-  <div :class="['task-card', { completed: done }]">
+  <div :class="['task-card', { done }]">
     <div>
       <h3>{{ title }}</h3>
       <p>{{ description }}</p>
