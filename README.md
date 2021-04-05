@@ -13,8 +13,6 @@ This workshop will teach you how to build <a href="https://trouni-vue-task-manag
 
 Note: the slide version of this workshop is available <a href="https://slides.trouni.com/?src=trouni/workshop-vuejs-todo" target="_blank">here</a>
 
-
-
 ---
 
 ## Setup
