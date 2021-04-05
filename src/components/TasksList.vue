@@ -1,13 +1,10 @@
 <template>
   <div>
-    <button
-      class="btn round-icon"
-      @click="showingNewTaskForm = !showingNewTaskForm"
-    >
-      {{ showingNewTaskForm ? "✕" : "＋" }}
+    <button class="btn round-icon" @click="newFormVisible = !newFormVisible">
+      {{ newFormVisible ? "✕" : "＋" }}
     </button>
 
-    <NewTask v-if="showingNewTaskForm" @create-task="createTask" />
+    <NewTask v-if="newFormVisible" @add-task="addTask" />
 
     <div v-if="tasks.length" class="tasks-list">
       <TaskCard
@@ -22,7 +19,7 @@
       <a href="#" @click="resetTasks()" class="reset-link">Reset tasks</a>
     </div>
 
-    <p v-else-if="!showingNewTaskForm">You don't have any tasks yet...</p>
+    <p v-else-if="!newFormVisible">You don't have any tasks yet...</p>
   </div>
 </template>
 
@@ -40,7 +37,7 @@ export default {
   data() {
     return {
       tasks: JSON.parse(localStorage.getItem("tasks")) || [],
-      showingNewTaskForm: false,
+      newFormVisible: false,
     };
   },
 
@@ -51,9 +48,9 @@ export default {
   },
 
   methods: {
-    createTask(title, description, done = false) {
+    addTask(title, description, done = false) {
       this.tasks.unshift({ title, description, done });
-      this.showingNewTaskForm = false;
+      this.newFormVisible = false;
     },
     toggleTask(taskIndex) {
       const taskToUpdate = this.tasks[taskIndex];

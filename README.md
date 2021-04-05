@@ -42,7 +42,7 @@ You should now be able to view your app on http://localhost:8080.
 
 ---
 
-## Introducing Vue Components
+## Intro to Vue Components
 
 
 ### Component File Structure
@@ -76,7 +76,7 @@ Create a new `/components/TasksList.vue` file with the following code:
 <!-- TasksList.vue -->
 
 <template>
-  <div>
+  <div id="tasks">
     <p>This is my first Vue.js component</p>
   </div>
 </template>
@@ -113,7 +113,7 @@ Let's replace the text with a static card:
 
 ```html
 <template>
-  <div>
+  <div id="tasks">
     <div class="task-card">
       <div>
         <h3>Create a card component</h3>
@@ -131,7 +131,8 @@ You can add styling rules for each component in the `<style>` section. Try it ou
 
 
 
-## Making components dynamic
+## Making dynamic components
+
 
 First of all, we should move the task card into its own component. Move the previous code into a `TaskCard.vue` and add this styling:
 
@@ -176,6 +177,8 @@ First of all, we should move the task card into its own component. Move the prev
 
 Let's define some `data` and use the mustaches `{{ }}` to interpolate the values in our HTML template.
 
+**💡Tip**: Install the awesome [Vue.js Chrome DevTools extension](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) to inspect data (and more) in your Vue app.
+
 ```vue
 <!-- TaskCard.vue -->
 
@@ -204,7 +207,9 @@ export default {
 ```
 
 
-We want our component to be reusable: we should be able to assign the `title` and `description` dynamically.
+**We want our component to be reusable:**
+
+Let's assign the `title` and `description` dynamically.
 
 
 ### Passing Data to Child Components with `props`
@@ -224,7 +229,7 @@ export default {
   props: {
     title: String,
     description: String,
-    done: Boolean
+    done: { type: Boolean, default: false }
   },
 };
 </script>
@@ -379,31 +384,29 @@ Let's add a button to test that our method works and make it listen to `click` e
 
 ### Capturing user input with `v-model`
 
-We still need to be able to enter the `title` and `description` ourselves. Let's create a new component `NewTask`.
+We still need to be able to enter the `title` and `description` ourselves. Let's add some inputs to our `TasksList`.
 
-```vue
-<!-- NewTask.vue -->
+```html
+<!-- TasksList.vue -->
 
-<template>
-  <div class="task-card new-task">
-    <div>
-      <input
-        type="text"
-        placeholder="What would you like to do?"
-      />
-      <textarea
-        placeholder="Add some details about your task..."
-      ></textarea>
-    </div>
+<div class="task-card new-task">
+  <div>
+    <input
+      type="text"
+      placeholder="What would you like to do?"
+    />
+    <textarea
+      placeholder="Add some details about your task..."
+    ></textarea>
   </div>
-</template>
+</div>
 ```
 
 
-Add the following styles to your `NewTask` component:
+Add the following styles to your `TasksList` component:
 
 ```vue
-<!-- NewTask.vue -->
+<!-- TasksList.vue -->
 
 <style lang="scss">
 @keyframes expand-vertical { from { min-height: 0; height: 0; } to { min-height: 6rem; } }
@@ -424,18 +427,18 @@ Add the following styles to your `NewTask` component:
 We can bind the input fields with data attributes in our component.
 
 ```vue
-<!-- NewTask.vue -->
+<!-- TasksList.vue -->
 
 <template>
   <!-- ... -->
     <input
       type="text"
       placeholder="What would you like to do?"
-      v-model="title"
+      v-model="newTitle"
     />
     <textarea
       placeholder="Add some details about your task..."
-      v-model="description"
+      v-model="newDescription"
     ></textarea>
   <!-- ... -->
 </template>
@@ -444,8 +447,9 @@ We can bind the input fields with data attributes in our component.
 export default {
   data() {
     return {
-      title: "",
-      description: "",
+      tasks: [],
+      newTitle: "",
+      newDescription: "",
     };
   },
 };
@@ -453,46 +457,78 @@ export default {
 ```
 
 
-### Sending Data to Parent Components using Custom Events
-
-To pass data _upstream_ from a child to a parent component: 
-1. the child component emits a custom event using `$emit('custom-event')`
-2. the parent component listens for that event using `v-on:custom-event`
-
-
-We will create the new task when pressing the `enter` key.
+### Update the `v-on` directive
 
 ```vue
-<!-- NewTask.vue -->
+<!-- TasksList.vue -->
 
 <template>
-  <div class="task-card new-task" @keyup.enter="createTask(title, description)">
+  <!-- ... -->
+    <button
+      class="btn round-icon"
+      v-on:click="addTask(newTitle, newDescription), resetForm()"
+    >＋</button>
   <!-- ... -->
 </template>
 
 <script>
   // ...
   methods: {
-    createTask(title, description) {
-      this.$emit("add-task", title, description);
-      this.title = "";
-      this.description = "";
+    addTask(title, description, done = false) {
+      this.tasks.unshift({ title, description, done });
     },
+    resetForm() {
+      this.newTitle = ""
+      this.newDescription = ""
+    }
   },
   // ...
 </script>
 ```
 
 
-The parent component `TasksList` listens for the `add-task` event, and calls the `addTask` method when the event is triggered.
+### Manipulate the DOM by combining `v-on` and `v-if`/`v-show`
+
+Let's only show the inputs after we click on the `+` button.
 
 ```vue
-<NewTask @add-task="addTask" />
+<template>
+  <div id="tasks">
+    <button class="btn round-icon" @click="newFormVisible = !newFormVisible">
+      {{ newFormVisible ? "✕" : "＋" }}
+    </button>
+
+    <div
+      v-show="newFormVisible"
+      class="task-card new-task"
+      @keyup.enter="addTask(newTitle, newDescription), resetForm()"
+    >
+    <!-- ... -->
+    <p v-else-if="!newFormVisible">You don't have any tasks yet...</p>
+  </div>
+</template>
+
+<script>
+  // ...
+  data() {
+    return {
+      // ...
+      newFormVisible: false,
+    };
+  },
+
+  methods: {
+    addTask(title, description, done = false) {
+      // ...
+      this.newFormVisible = false;
+    },
+  // ...
 ```
 
 
 
 ## Bonus
+
 
 
 ### Persist Data with `localStorage`
@@ -520,6 +556,7 @@ We can easily store the `tasks` array directly in the user's browser:
 ```
 
 
+
 ### Mark Tasks as Done
 
 Implement this  `toggleTask` method in the `TasksList` component:
@@ -535,7 +572,7 @@ toggleTask(taskIndex) {
 },
 ```
 
-Note that we need to use `this.$set` rather than `this.tasks[taskIndex] = taskToUpdate` to make sure [Vue detects the changes in the array](https://vuejs.org/v2/guide/reactivity.html#For-Arrays).
+Note that Vue2 requires us to use `this.$set` rather than `this.tasks[taskIndex] = taskToUpdate` to make sure [Vue reacts to the changes in the array](https://vuejs.org/v2/guide/reactivity.html#For-Arrays).
 
 
 Create this new UI component `Checkbox`:
@@ -614,6 +651,100 @@ export default {
   },
 };
 </script>
+```
+
+
+
+### Send Data to Parent Components using Custom Events
+
+To pass data _upstream_ from a child to a parent component: 
+1. the child component emits a custom event using `$emit('custom-event')`
+2. the parent component listens for that event using `v-on:custom-event`
+
+
+Let's move the input fields and style from `TasksList` to a new component `NewTask`.
+
+```vue
+<!-- NewTask.vue -->
+
+<template>
+  <div class="task-card new-task"
+      @keyup.enter="submitTask(newTitle, newDescription), resetForm()">
+    <div>
+      <input
+        type="text"
+        placeholder="What would you like to do?"
+        v-model="newTitle"
+      />
+      <textarea
+        placeholder="Add some details about your task..."
+        v-model="newDescription"
+      ></textarea>
+    </div>
+  </div>
+</template>
+
+<script>
+  data() {
+    return {
+      newTitle: "",
+      newDescription: "",
+    };
+  },
+
+  methods: {
+    submitTask(title, description) {
+      // Problem is that the `tasks` array is in the parent component, `TasksList`.
+      // We need to submit the title and description "upstream".
+    },
+    resetForm() {
+      this.newTitle = "";
+      this.newDescription = "";
+    },
+  },
+</script>
+
+<style lang="scss">
+@keyframes expand-vertical { from { min-height: 0; height: 0; } to { min-height: 6rem; } }
+.task-card.new-task {
+  animation: expand-vertical 0.2s;
+  overflow: hidden;
+  background-color: white;
+  border-left: solid 5px #35495e;
+  &, &:hover { transform: scale(1.1); box-shadow: 2px 3px 10px rgba(black, 0.2); }
+  & + .tasks-list { pointer-events: none; }
+  input { font-size: 1.17rem; font-weight: bold; width: 100%; }
+  textarea { width: 100%; font-size: 0.9rem; resize: none; }
+}
+</style>
+```
+
+
+We can send a custom event upstream using `$emit`:
+
+```vue
+<!-- NewTask.vue -->
+
+<script>
+  // ...
+  methods: {
+    submitTask(title, description) {
+      this.$emit("add-task", title, description);
+    },
+  },
+  // ...
+</script>
+```
+
+
+The parent component `TasksList` listens for the custom `add-task` event, and calls the `addTask` method when the event is triggered.
+
+```vue
+<template>
+  <!-- ... -->
+  <NewTask @add-task="addTask" />
+  <!-- ... -->
+</template>
 ```
 
 
