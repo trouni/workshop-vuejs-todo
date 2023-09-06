@@ -7,9 +7,7 @@
 
 Learn how to build <a href="https://trouni-vue-task-manager.netlify.app/" target="_blank">this simple Todo app</a>.
 
-**REGISTER:**
-
-> <a href="https://info.lewagon.com/tokyo-vuejs" target="_blank">https://info.lewagon.com/tokyo-vuejs</a>
+This workshop has been archived. Please refer to the [newer version](https://www.github.com/trouni/workshop-vue3-todo).
 
 Note: the slide version of this workshop is available [here](https://slides.trouni.com/?src=trouni/workshop-vuejs-todo).
 
